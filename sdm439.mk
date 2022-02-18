@@ -119,7 +119,7 @@ PRODUCT_PACKAGES += \
     libstdc++.vendor
 
 PRODUCT_PACKAGES += \
-    Snap
+    GrapheneCamera
 
 PRODUCT_PACKAGES += \
     libwa_dof
