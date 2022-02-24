@@ -50,9 +50,6 @@ on init
     write /dev/stune/top-app/schedtune.colocate 1
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
-    write /sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/governor "bw_hwmon"
-    write /sys/class/devfreq/soc:qcom,cpu-llcc-ddr-bw/governor "bw_hwmon"
-    
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -78,7 +75,7 @@ mkdir /data/misc/camera 0770 camera camera
 
 #start camera server as daemon
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
-    class late_start
+    class main
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
@@ -228,12 +225,6 @@ on boot
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_min
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_val
 
-# FPS Info
-    chown system graphics /sys/devices/virtual/graphics/fb0/measured_fps
-    chmod 0666 /sys/devices/virtual/graphics/fb0/measured_fps
-    chown system graphics /sys/class/graphics/fb0/measured_fps
-    chmod 0666 /sys/class/graphics/fb0/measured_fps
-
 # access permission for wlan
     chown system system /mnt/vendor/persist/WCNSS_qcom_wlan_nv.bin
 
@@ -246,9 +237,6 @@ on boot
     setprop vendor.usb.rmnet.inst.name "rmnet"
     setprop vendor.usb.dpl.inst.name "dpl"
 
-    # Disable serial console
-    setprop init.svc.console stopped
-    
 # Thermal
     chmod 0664 /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/sconfig

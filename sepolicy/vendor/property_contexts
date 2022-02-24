@@ -3,6 +3,8 @@ sys.post_boot.parsed       u:object_r:vendor_mpctl_prop:s0
 persist.net.doxlat         u:object_r:vendor_xlat_prop:s0
 camera.dual.mode           u:object_r:camera_prop:s0
 persist.camera.            u:object_r:camera_prop:s0
+persist.vendor.camera.     u:object_r:camera_prop:s0
+vendor.camera.             u:object_r:camera_prop:s0
 ctl.vendor.imsrcsd         u:object_r:vendor_ctl_vendor_imsrcsservice_prop:s0
 
 # Camera
@@ -11,13 +13,3 @@ ro.camera.	u:object_r:camera_prop:s0
 
 # Dirac
 persist.audio.dirac.       u:object_r:dirac_prop:s0
-audio.dirac.logging            u:object_r:dirac_prop:s0
-
-# Hardware
-ro.hardware.chipname       u:object_r:exported_default_prop:s0
-
-#
-ro.min.fling_velocity             u:object_r:system_prop:s0
-ro.max.fling_velocity             u:object_r:system_prop:s0
-persist.input.velocitytracker.strategy		u:object_r:system_prop:s0
-ro.input.resampling                       u:object_r:system_prop:s0

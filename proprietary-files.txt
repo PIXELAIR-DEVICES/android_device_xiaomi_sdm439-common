@@ -1,5 +1,6 @@
 # All unpinned blobs below are extracted from daisy-user 10 QKQ1.191002.002 V11.0.21.0.QDLMIXM release-keys
 # olive Package version: Xiaomi/olive/olive:10/QKQ1.191014.001/V12.5.1.0.QCNCNXM:user/release-keys
+# riva Package version: Xiaomi/riva/riva:8.1.0/OPM1.171019.026/V11.0.2.0.OCKMIXM:user/release-keys
 
 # ADSP
 vendor/bin/adsprpcd
@@ -32,11 +33,8 @@ vendor/lib/rfsa/adsp/misound_karaokemix_res.bin|1b6114eeefa29e36f10571ae5dde4ba8
 vendor/lib/rfsa/adsp/misound_karaoke_res.bin|eeda10edb9cf93d20cbe9a4ed77dd0eeef81efab
 vendor/lib/rfsa/adsp/misound_res.bin|f9b70e341815fb9c3ea9a0d3a248efd315389f9c
 
-# Audio
+# Audio - from olive
 vendor/bin/audioflacapp
-vendor/lib/soundfx/libqcbassboost.so
-vendor/lib/soundfx/libqcreverb.so
-vendor/lib/soundfx/libqcvirt.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
@@ -51,8 +49,6 @@ vendor/lib/libdrc.so
 vendor/lib/libqtigef.so
 vendor/lib/libsurround_3mic_proc.so
 vendor/lib/libtinycompress_vendor.so
-vendor/lib64/soundfx/libqcbassboost.so
-vendor/lib64/soundfx/libqcvirt.so
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so
@@ -104,7 +100,6 @@ vendor/lib64/libbluetooth_audio_session_qti.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 
 # Camera - from olive
-vendor/bin/mm-qcamera-app
 vendor/bin/mm-qjpeg-dec-test
 vendor/bin/mm-qjpeg-enc-test
 vendor/bin/mm-qomx-idec-test
@@ -131,7 +126,6 @@ vendor/lib64/libmmcamera_faceproc2.so
 vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmmcamera_tintless_algo.so
 vendor/lib64/libmmcamera_tintless_bg_pca_algo.so
-vendor/lib/hw/camera.msm8937.so
 vendor/lib/libarcsoft_beautyshot.so
 vendor/lib/libarcsoft_high_dynamic_range.so
 vendor/lib/libcamera_scene.so
@@ -140,7 +134,6 @@ vendor/lib/libc++_shared.so
 vendor/lib/libdepthmapwrapper.so
 vendor/lib/libflash_gpio.so
 vendor/lib/libflash_pmic.so
-vendor/lib/libhal_dbg.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
@@ -175,7 +168,6 @@ vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
 vendor/lib/libmmcamera_imglib.so
-vendor/lib/libmmcamera_interface.so
 vendor/lib/libmmcamera_irs1645.so
 vendor/lib/libmmcamera_isp_abf40.so
 vendor/lib/libmmcamera_isp_bcc40.so
@@ -226,16 +218,12 @@ vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_tuning_lookup.so
 vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_westalgo_rtbokeh.so
-vendor/lib/libmmjpeg_interface.so
 vendor/lib/libmmjpeg.so
-vendor/lib/libmmlib2d_interface.so
-vendor/lib/libmm-qcamera.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
 vendor/lib/libmpbase.so
 vendor/lib/libois_bu63165.so
 vendor/lib/libois_lc898122.so
-vendor/lib/libqomx_core.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libqomx_jpegenc.so
@@ -251,12 +239,6 @@ vendor/lib/libVDClearShot.so
 #vendor/lib/libwa_rtdof.so
 vendor/lib/libXMFD_AgeGender.so
 
-# Camera HIDL - from olive
-vendor/lib/android.hardware.camera.provider@2.4-legacy.so
-vendor/lib/camera.device@3.2-impl.so
-vendor/lib64/android.hardware.camera.provider@2.4-legacy.so
-vendor/lib64/camera.device@3.2-impl.so
-
 # Camera firmware
 vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_12_0.fw
@@ -269,6 +251,10 @@ vendor/firmware/cpp_firmware_v1_5_1.fw
 vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
+
+# Camera libts - from riva
+-vendor/lib/libts_detected_face_hal.so
+-vendor/lib/libts_face_beautify_hal.so
 
 # CNE
 etc/cne/Nexus/ATT/ATT_profiles.xml
@@ -409,7 +395,7 @@ vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 
-# Gatekeeper HIDL - from daisy-user-10-QKQ1.191002.002-V11.0.18.0.QDLMIXM-release-keys
+# Gatekeeper HIDL
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|bea6d682011b465a08b9085f7b5e69b965743eee
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc|1b8d5f58fe0a57906acf72b862c16a2521daa97b
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so|b04d8ae5d3851f29fd8b7c8e034fa0ef04fb96f3
@@ -472,48 +458,48 @@ vendor/etc/sap.conf
 vendor/etc/xtwifi.conf
 
 # Graphics
-vendor/lib64/egl/eglSubDriverAndroid.so
-vendor/lib64/egl/libEGL_adreno.so
-vendor/lib64/egl/libGLESv1_CM_adreno.so
-vendor/lib64/egl/libGLESv2_adreno.so
-vendor/lib64/egl/libq3dtools_adreno.so
-vendor/lib64/egl/libq3dtools_esx.so
-vendor/lib64/hw/vulkan.adreno.so
-vendor/lib64/libadreno_utils.so
-vendor/lib64/libbccQTI.so
-vendor/lib64/libC2D2.so
-vendor/lib64/libc2d30_bltlib.so
-vendor/lib64/libCB.so
-vendor/lib64/libfastcvopt.so
-vendor/lib64/libgsl.so
-vendor/lib64/libllvm-glnext.so
-vendor/lib64/libllvm-qcom.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/librs_adreno_sha1.so
-vendor/lib64/librs_adreno.so
-vendor/lib64/libRSDriver_adreno.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
+vendor/lib/egl/libQTapGLES.so
 vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/egl/libq3dtools_esx.so
-vendor/lib/hw/vulkan.adreno.so
+vendor/lib/hw/vulkan.msm8953.so:vendor/lib/hw/vulkan.msm8937.so
+vendor/lib/libC2D2.so
+vendor/lib/libCB.so
+vendor/lib/libOpenCL.so
+vendor/lib/libRSDriver_adreno.so
 vendor/lib/libadreno_utils.so
 vendor/lib/libbccQTI.so
-vendor/lib/libC2D2.so
 vendor/lib/libc2d30_bltlib.so
-vendor/lib/libCB.so
-vendor/lib/libeglc2d.so
-vendor/lib/libfastcvopt.so
 vendor/lib/libgsl.so
+vendor/lib/libhdr_tm.so
 vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
-vendor/lib/libOpenCL.so
-vendor/lib/librs_adreno_sha1.so
+vendor/lib/libmm-hdcpmgr.so
 vendor/lib/librs_adreno.so
-vendor/lib/libRSDriver_adreno.so
-
+vendor/lib/librs_adreno_sha1.so
+vendor/lib64/egl/eglSubDriverAndroid.so
+vendor/lib64/egl/libEGL_adreno.so
+vendor/lib64/egl/libGLESv1_CM_adreno.so
+vendor/lib64/egl/libGLESv2_adreno.so
+vendor/lib64/egl/libQTapGLES.so
+vendor/lib64/egl/libq3dtools_adreno.so
+vendor/lib64/hw/vulkan.msm8953.so:vendor/lib64/hw/vulkan.msm8937.so
+vendor/lib64/libC2D2.so
+vendor/lib64/libCB.so
+vendor/lib64/libOpenCL.so
+vendor/lib64/libRSDriver_adreno.so
+vendor/lib64/libadreno_utils.so
+vendor/lib64/libbccQTI.so
+vendor/lib64/libc2d30_bltlib.so
+vendor/lib64/libgsl.so
+vendor/lib64/libhdr_tm.so
+vendor/lib64/libllvm-glnext.so
+vendor/lib64/libllvm-qcom.so
+vendor/lib64/libmm-hdcpmgr.so
+vendor/lib64/librs_adreno.so
+vendor/lib64/librs_adreno_sha1.so
 
 # Graphics (SDM) - from Nokia/Panther_00WW/PAN_sprout:11/RKQ1.200928.002/00WW_3_150:user/release-keys
 vendor/lib/libsdm-color.so|a78aefbbe51fa6ea7c35e45b4bc0d1af
@@ -539,10 +525,7 @@ vendor/firmware/a506_zap.mdt
 vendor/firmware/a530_pfp.fw
 vendor/firmware/a530_pm4.fw
 
-# Ipacm
-vendor/bin/ipacm-diag
-
-# Keymaster - from daisy-user-10-QKQ1.191002.002-V11.0.18.0.QDLMIXM-release-keys
+# Keymaster
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti|13a894ea69abc056b754fa9e8f8e828ffd1de38c
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc|e502c7046fb6a1955e54936d6c8f4f8c2889b201
 vendor/lib/libkeymasterdeviceutils.so|e3557fd2bc5d01de71b62e378dc51a2696a99768
@@ -695,7 +678,7 @@ vendor/res/charger/Battery_red1.png|e7dc9d0638e3405594f2129b85129efb345e4c19
 vendor/res/charger/Battery_red2.png|2f9716f028bff9ac6d44ec3eca1f5e06fa7d0e01
 vendor/res/charger/battery_scale.png|84066970c9fe65be5e5e752e225ce07698147a36
 
-# QC RIL - from Daisy QKQ1.191002.002 V11.0.5.0.QDLMIXM
+# QC RIL
 vendor/bin/hw/qcrild|c0db5589a45874c31c0bb7e8a7151511505c1e04
 vendor/etc/init/qcrild.rc|f9c32f5e7a8e7f4a0df1dcce174de169b8d7c060
 vendor/lib64/libqcrilFramework.so|3d8f25d13533f6fa45a36b23feb250291b663370
@@ -741,7 +724,7 @@ vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libqmiservices.so
 
-# QTEE - from daisy-user-10-QKQ1.191002.002-V11.0.2.0.QDLMIXM-release-keys
+# QTEE
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service|4d4f6f54c856ccdab0fbdda7a5064b24cf72fcd9
 vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc|c966350ee67d3a7c73ca7184e3725264025d16f5
 vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|f3f5c4216b9a505affbe955a85a56bd39ca1ab74
@@ -781,7 +764,6 @@ vendor/etc/data/netmgr_config.xml
 vendor/etc/init/dataadpl.rc
 vendor/etc/init/dataqti.rc
 vendor/etc/init/init-qcril-data.rc
-vendor/etc/init/ipacm-diag.rc
 vendor/etc/init/netmgrd.rc
 vendor/etc/init/port-bridge.rc
 vendor/lib/libmdmdetect.so
@@ -961,6 +943,3 @@ vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/libwvhidl.so
-
-# Wi-Fi - from olive
-vendor/bin/wcnss_service|42d6db361ceacb15eb6560cdc91dbda87ab7f7c5

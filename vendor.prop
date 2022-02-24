@@ -1,16 +1,16 @@
 # ART
 dalvik.vm.dex2oat64.enabled=true
 ro.vendor.qti.am.reschedule_service=true
-ro.dex2oat_white_list=com.google.android.gms
-ro.sys.fw.dex2oat_thread_count=6
+ro.sys.fw.dex2oat_thread_count=8
 dalvik.vm.boot-dex2oat-cpu-set=0,1,2,3,4,5,6,7
 dalvik.vm.boot-dex2oat-threads=8
-dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5
-dalvik.vm.dex2oat-threads=6
+dalvik.vm.dex2oat-threads=8
+dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5,6,7
 dalvik.vm.dex2oat-filter=speed-profile
-dalvik.vm.image-dex2oat-cpu-set=0,1,2,3,4,5
-dalvik.vm.image-dex2oat-threads=6
+dalvik.vm.dex2oat-threads=8
+dalvik.vm.image-dex2oat-cpu-set=0,1,2,3,4,5,6,7
 dalvik.vm.image-dex2oat-filter=speed-profile
+dalvik.vm.image-dex2oat-threads=8
 dalvik.vm.dex2oat-minidebuginfo=false
 dalvik.vm.minidebuginfo=false
 
@@ -23,7 +23,6 @@ audio.deep_buffer.media=true
 audio.offload.disable=false
 audio.offload.min.duration.secs=30
 audio.offload.video=true
-debug.stagefright.omx_default_rank.sw-audio=1
 persist.vendor.audio.hw.binder.size_kbyte=1024
 persist.vendor.audio.speaker.prot.enable=false
 ro.audio.soundfx.dirac=true
@@ -54,8 +53,6 @@ vendor.voice.playback.conc.disabled=true
 vendor.voice.record.conc.disabled=false
 vendor.voice.voip.conc.disabled=true
 
-# shutdown
-ro.build.shutdown_timeout=2
 # Apex
 ro.apex.updatable=false
 
@@ -98,18 +95,16 @@ persist.vendor.dpm.feature=1
 persist.vendor.dpm.loglevel=0
 
 # Display
+debug.egl.hw=0
 debug.enable.sglscale=1
 debug.gralloc.enable_fb_ubwc=1
+debug.hwui.renderer=skiagl
+debug.renderengine.backend=skiaglthreaded
+renderthread.skia.reduceopstasksplitting=true
 debug.mdpcomp.logs=0
 debug.sf.enable_hwc_vds=0
-debug.hwc.winupdate=1
-debug.sf.disable_backpressure=0
-debug.sf.enable_gl_backpressure=1
-debug.egl.hw=0
 debug.sf.hw=0
-ro.surface_flinger.max_frame_buffer_acquired_buffers=3
-vendor.hwc.dpp.downscale=2
-debug.sf.latch_unsignaled=0
+debug.sf.latch_unsignaled=1
 debug.sf.recomputecrop=0
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
@@ -131,17 +126,6 @@ vendor.display.enable_default_color_mode=1
 vendor.display.qdcm.disable_factory_mode=1
 vendor.display.qdcm.mode_combine=1
 vendor.gralloc.enable_fb_ubwc=1
-vendor.display.comp_mask=0
-vendor.display.disable_decimation=1
-vendor.display.disable_excl_rect=0
-vendor.display.disable_excl_rect_partial_fb=1
-vendor.display.disable_hw_recovery_dump=1
-vendor.display.disable_inline_rotator=1
-vendor.display.disable_scaler=0
-vendor.display.disable_ui_3d_tonemap=1
-vendor.display.enable_null_display=0
-vendor.display.enable_optimize_refresh=1
-vendor.gralloc.disable_ubwc=0
 
 # DRM
 drm.service.enabled=true
@@ -172,10 +156,8 @@ media.aac_51_output_enabled=true
 media.msm8956hw=0
 media.stagefright.audio.sink=280
 vendor.mm.enable.qcom_parser=1048575
-media.stagefright.thumbnail.prefer_hw_codecs=true
 mm.enable.smoothstreaming=true
 mmp.enable.3g2=true
-vendor.audio.hw.aac.encoder=true
 vendor.vidc.dec.downscalar_height=1088
 vendor.vidc.dec.downscalar_width=1920
 vendor.vidc.disable.split.mode=1
@@ -183,27 +165,12 @@ vendor.vidc.enc.disable.pq=true
 vendor.vidc.enc.disable_bframes=1
 vendor.video.disable.ubwc=1
 
-# memory opts
+# Memory optimizations
 ro.vendor.qti.sys.fw.bservice_enable=true
-ro.sys.fw.bservice_limit=6
-ro.sys.fw.bservice_age=10000
-ro.am.reschedule_service=true
-ro.vendor.qti.sys.fw.bg_apps_limit=24
-ro.sys.fw.bg_apps_limit=24
-ro.config.fha_enable=true
-ro.config.dha_cached_max=8
-ro.config.dha_empty_max=24
-ro.config.dha_empty_init=24
-ro.config.dha_lmk_scale=0.990
-ro.config.dha_th_rate=2.3
-ro.config.sdha_apps_bg_max=50
-ro.config.sdha_apps_bg_min=2
-
-# Zygote Preforking
-persist.device.config.runtime_native.usap_pool_enabled=true
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.perf.scroll_opt=true
 
 # Network manager daemon
 ro.vendor.use_data_netmgrd=true
@@ -225,18 +192,18 @@ persist.rild.nitz_short_ons_0=""
 persist.rild.nitz_short_ons_1=""
 persist.rild.nitz_short_ons_2=""
 persist.rild.nitz_short_ons_3=""
-persist.sys.fflag.override.settings_provider_model=false
 persist.vendor.radio.add_power_save=1
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.custom_ecc=1
 persist.vendor.radio.mt_sms_ack=30
 persist.vendor.radio.procedure_bytes=SKIP
+persist.vendor.radio.ps.registration.enabled=true
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.sib16_support=1
 rild.libargs=-d /dev/smd0
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 ril.subscription.types=NV,RUIM
-ro.telephony.default_network=22,20
+ro.telephony.default_network=22,22
 ro.telephony.iwlan_operation_mode=legacy
 service.qti.ims.enabled=1
 telephony.lteOnCdmaDevice=1
@@ -255,73 +222,3 @@ persist.sys.binary_xml=false
 
 # Time Services
 persist.timed.enable=true
-
-# dalvik
-pm.dexopt.boot=verify
-pm.dexopt.first-boot=quicken
-pm.dexopt.ab-ota=quicken
-pm.dexopt.install=quicken
-
-#
-debug.hwui.use_buffer_age=false
-
-# zram
-ro.zram.mark_idle_delay_mins=60
-ro.zram.first_wb_delay_mins=1440
-ro.zram.periodic_wb_delay_hours=24
-
-#go_defaults_common.mk
-pm.dexopt.downgrade_after_inactive_days=10
-pm.dexopt.shared=quicken
-ro.lmk.critical_upgrade=true
-ro.lmk.upgrade_pressure=40
-ro.lmk.downgrade_pressure=60
-ro.lmk.kill_heaviest_task=false
-ro.lmk.thrashing_limit=30
-ro.lmk.thrashing_limit_decay=50
-ro.statsd.enable=false
-
-# PSI
-ro.lmk.use_psi=true
-ro.lmk.swap_util_max=100
-ro.lmk.swap_free_low_percentage=10
-ro.lmk.psi_partial_stall_ms=250
-ro.lmk.psi_complete_stall_ms=700
-
-#lmk props
-ro.lmk.low=1001
-ro.lmk.medium=1001
-ro.lmk.critical=1001
-ro.lmk.kill_timeout_ms=100
-ro.lmk.use_minfree_levels=false
-
-debug.hwui.renderer=skiagl
-debug.renderengine.backend=skiaglthreaded
-renderthread.skia.reduceopstasksplitting=false
-debug.cpurend.vsync=false
-debug.sf.disable_client_composition_cache=1
-debug.hwui.use_hint_manager=true
-debug.hwui.target_cpu_time_percent=30
-
-# SurfaceFlinger
-debug.sf.use_phase_offsets_as_durations=1
-debug.sf.late.sf.duration=10500000
-debug.sf.late.app.duration=20500000
-debug.sf.early.sf.duration=21000000
-debug.sf.early.app.duration=16500000
-debug.sf.earlyGl.sf.duration=13500000
-debug.sf.earlyGl.app.duration=21000000
-
-# legit touch hax 
-touch.size.scale=1
-touch.size.bias=0
-touch.size.isSummed=0
-touch.pressure.scale=0.001
-touch.distance.calibration=none
-touch.distance.scale=0
-touch.coverage.calibration=box
-touch.gestureMode=spots
-MultitouchSettleInterval=1ms 
-MultitouchMinDistance=1px
-TapInterval=1ms
-TapSlop=1px
